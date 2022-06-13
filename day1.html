@@ -52,6 +52,27 @@
             }
         }
         console.log(Solution2(13,29,17));
+
+        const Solution3 =function(num){
+            let answer;
+            if(num%12==0){
+                answer=num/12
+                return answer;
+            }else{
+                answer=parseInt(num/12)+1
+                return answer;
+            }
+        }
+        console.log(Solution3(178));
+
+        const Solution4 =function(n){ 
+            let answer=0;
+            for(i=0;i<=n;i++){
+                answer=answer+i
+            }
+            return answer;
+        }
+        console.log(Solution4(6));
     </script>
 </head>
 <body>
