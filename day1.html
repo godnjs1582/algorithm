@@ -148,6 +148,19 @@
         let str9="BANANA";
         console.log(Solution9(str9))
 
+        const Solution10 =function(s,t){
+            let answer=0;
+            let arr=s.split("")
+            for(i=0;i<arr.length;i++){
+                if(arr[i]===t){
+                    answer++
+                }
+            }
+            return answer;
+        }
+        let str="COMPUTERPROGRAMMING";
+        console.log(Solution10(str,"R"))
+
     </script>
 </head>
 <body>
