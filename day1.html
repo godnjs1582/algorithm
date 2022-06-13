@@ -11,6 +11,23 @@
             return min
         }
         console.log(MinNum(100,2,50));
+
+        const MinNum2 =function(a,b,c){
+            if(a>b){
+                if(b>c){
+                    return c
+                }else{
+                    return b
+                }
+            }else{
+                if(a>c){
+                    return c
+                }else{
+                    return a
+                }
+            }
+        }
+        console.log(MinNum2(10,3,500))
     </script>
 </head>
 <body>
