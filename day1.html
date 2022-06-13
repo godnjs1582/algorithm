@@ -102,8 +102,48 @@
             }
             return answer=[sum,min];
         }
-        arr=[12,77,38,41,53,92,85]
-        console.log(Solution6(arr));
+        arr6=[12,77,38,41,53,92,85]
+        console.log(Solution6(arr6));
+
+
+        const Solution7 =function(day,arr){
+            let answer=0;
+            for(i=0;i<arr.length;i++){
+                if(arr[i]%10===day) answer++;
+            }
+            return answer;
+        }
+        arr7 =[25,23,11,47,53,17,33];
+        console.log(Solution7(3,arr7))
+
+        const Solution8 =function(arr){
+            let answer=[];
+            let sum=0;
+            let falseOne=0;
+            let falseTwo=0;
+            arr.forEach(function(item){
+                sum=sum+item;
+            })
+            for(i=0;i<arr.length;i++){
+                for(j=i+1;j<arr.length;j++){
+                    if(arr[i]+arr[j]==40){
+                        falseOne=arr[i]
+                        falseTwo=arr[j]
+                    }
+                }
+            }
+            console.log(falseOne,falseTwo)
+            for (i=0;i<arr.length;i++){
+                if(arr[i]!=falseOne&&arr[i]!=falseTwo){
+                    answer.push(arr[i])
+                }
+            }
+            return answer;
+        }
+        arr8 =[20,7,23,19,10,15,25,8,13];
+        console.log(Solution8(arr8))
+
+
 
     </script>
 </head>
