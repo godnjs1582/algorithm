@@ -28,6 +28,30 @@
             }
         }
         console.log(MinNum2(10,3,500))
+        const Solution1 = function(a,b,c){
+            let answer ;
+            if(a<b) answer =a;
+            else answer=b;
+            if(answer<c){
+                return answer;
+            }else{
+                return c
+            }
+        }
+        const Solution2 =function(a,b,c){
+            let answer;
+            let max=Math.max(a,b,c);
+            if(a===0|b===0|c===0){
+                return "NO"
+            }else{
+                if(max<a+b+c-max){
+                return "YES"
+            }else{
+                return "NO"
+            }
+            }
+        }
+        console.log(Solution2(13,29,17));
     </script>
 </head>
 <body>
