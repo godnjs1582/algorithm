@@ -161,6 +161,85 @@
         let str="COMPUTERPROGRAMMING";
         console.log(Solution10(str,"R"))
 
+        const Solution11=function(s){
+            let arr=s.split("")
+            let answer=0;
+            for(i=0;i<arr.length;i++){
+                if(arr[i]===arr[i].toUpperCase())
+                answer++;
+            }
+            return answer;
+        }
+        console.log(Solution11("KoreaTimeGoodTo"))
+
+        const Solution12=function(s){
+            let arr=s.split("")
+            let answer=[];
+            for(i=0;i<arr.length;i++){
+                answer.push(arr[i].toUpperCase())
+            }
+            return answer.join("");
+        }
+        console.log(Solution12("ItisTimeToStudy"))
+
+        const Solution13=function(s){
+            let arr=s.split("")
+            let answer=[];
+            for(i=0;i<arr.length;i++){
+                if(arr[i]===arr[i].toUpperCase()){//대문자이면
+                    answer.push(arr[i].toLowerCase())   
+                }else{
+                    answer.push(arr[i].toUpperCase())
+                }
+                
+            }
+            return answer.join("")
+        }
+        console.log(Solution13("StuDY"))
+
+        const Solution14=function(n,arr){
+            let answer="0";
+            for(i=0;i<n;i++){
+                if(arr[i].length>answer.length){
+                    answer=arr[i]
+                }
+            }
+            return answer;
+        }
+        console.log(Solution14(5,["teacher","time","student","beautifulsdfsdf","good"]))
+
+        const Solution15=function(s){
+            let answer;
+           if(s.length%2===0){//짝수일 때
+                answer=s[s.length/2]+s[s.length/2-1]
+           }else{
+               answer=s[Math.floor(s.length/2)]
+           }
+            return answer;
+        }
+        console.log(Solution15("good"))
+
+        const Solution16=function(s){
+            let arr=new Set(s.split(""))
+            let arr2=[...arr]
+
+            let answer=arr2.join("")
+          return answer;
+            
+        }
+        console.log(Solution16("ksekkset"))
+
+        const Solution17=function(n,arr){
+            let arr2=new Set(arr)
+            let arr3=[...arr2]
+
+          return arr3;
+
+            
+        }
+        console.log(Solution17(5,["good","time","good","time","student"]))
+
+
     </script>
 </head>
 <body>
