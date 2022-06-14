@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day2</title>
+    <script>
+        const Solution1=function(n,arr){
+            let answer=[];
+            answer.push(arr[0])
+            for(i=1;i<arr.length;i++){
+                
+                if(arr[i+1]>arr[i]){
+                    answer.push(arr[i+1])
+                }
+               
+            }
+             return answer;
+        }
+        console.log(Solution1(6,[7,3,9,5,6,12]))
+
+        const Solution2=function(n,arr){
+            let max=Number.MIN_SAFE_INTEGER;
+            console.log(max);
+            let answer=0;
+            for(i=0;i<arr.length;i++){
+                if(arr[i]>max){
+                    max=arr[i]
+                    answer++;
+                }
+            }
+             return answer;
+        }
+        console.log(Solution2(8,[130,135,148,140,145,150,150,153]))
+
+        const Solution3=function(n,A,B){
+            let answer=[];
+           for(i=0;i<5;i++){
+            if(A[i]===1){
+                if(B[i]===1){
+                    answer.push("D")
+                }else if(B[i]===2){
+                    answer.push("B")
+                }else{
+                    answer.push("A")
+                }
+            }
+            if(A[i]===2){
+                if(B[i]===2){
+                    answer.push("D")
+                }else if(B[i]===3){
+                    answer.push("B")
+                }else{
+                    answer.push("A")
+                }
+            }
+            if(A[i]===3){
+                if(B[i]===3){
+                    answer.push("D")
+                }else if(B[i]===1){
+                    answer.push("B")
+                }else{
+                    answer.push("A")
+                }
+            }
+           }
+           return answer;
+        }
+        console.log(Solution3(5,[2,3,3,1,3],[1,1,2,2,3]))
+
+        const Solution4=function(n,arr){
+            let beforeResult=0;
+            let answer=0;
+            for(i=0;i<n;i++){
+                if(arr[i]===1){
+                    beforeResult++
+                    answer=answer+beforeResult
+                }else{
+                    beforeResult=0;
+                }
+            }
+            return answer;
+        }
+        console.log(Solution4(10,[1,0,1,1,1,0,0,1,1,0]))
+
+        const Solution5 =function(n,arr){
+            let answer=[];
+            let count=1;
+            for(i=0;i<n;i++){
+                for(j=0;j<n;j++){
+                    if(arr[i]<arr[j])
+                    count++
+                }
+                answer.push(count);
+                count=1;
+            }
+            return answer;
+        }
+        console.log(Solution5(5,[87,92,100,100,76]))
+
+        const Solution6=function(arr){
+            let rowSum=0;
+            let rowSumArr=[];
+            let maxRowSum=0;
+
+            let colSum=0;
+            let colSumArr=[];
+            let maxColSum=0;
+
+            let diagSum=0;
+            let diagSumArr1=[];
+            let diagSumArr2=[];
+
+            for(i=0;i<arr.length;i++){ //행의 합 중 최고값 구하기
+                for(j=0;j<arr.length;j++){
+                    rowSum=rowSum+arr[i][j]
+                }
+                rowSumArr.push(rowSum);
+                rowSum=0;
+            }
+            maxRowSum=Math.max(...rowSumArr);
+            console.log(maxRowSum)
+
+            for(i=0;i<arr.length;i++){//열의 합 중 최고값 구하기
+                for(j=0;j<arr.length;j++){
+                    colSum=colSum+arr[j][i]
+                }
+                colSumArr.push(colSum);
+                colSum=0;
+            }
+            maxColSum=Math.max(...rowSumArr);
+            console.log(maxColSum);
+
+            for(i=0;i<arr.length;i++){
+                for(j=0;j<arr.length;j++){
+                    if(i==j){
+                        diagSumArr1.push(arr[i][j])
+                    }else if(i+j==arr.length-1){
+                        diagSumArr2.push(arr[i][j])
+                    }
+                }
+            }
+
+            console.log(diagSumArr1.reduce(function add(sum,curv){
+                return sum+curv
+            },0));
+            console.log(diagSumArr2.reduce(function add(sum,curv){
+                return sum+curv
+            },0));
+
+        }
+        let arr6=[[10,13,10,12,15],
+                  [12,39,30,23,11],
+                  [11,25,50,53,15],
+                  [19,27,29,37,27],
+                  [19,13,30,13,19]]
+
+        console.log(Solution6(arr6))
+
+        const Solution7 = function(arr){
+            let dx=[-1,0,0,1]
+            let dy=[0,1,-1,0]
+            let n=arr.length;
+            answer=0;
+            for(i=0;i<arr.length;i++){
+                for(j=0;j<arr.length;j++){
+                    let flag=1;
+                    for(k=0;k<arr.length;k++){
+                        let nx=i+dx[k]
+                        let ny=i+dy[k]
+                        if(nx>=0&&ny>=0&&nx<n&&ny<n&&arr[i][j]>arr[nx][ny]){
+                            flag=0;
+                            break;
+                        }
+                    }
+                    if(flag==1){
+                        answer++
+                    }
+                }
+            }return answer;
+        }
+        console.log(Solution7([[5,3,7,2,3],[3,7,1,6,1],[7,2,5,3,4],[4,3,6,4,1],[8,7,3,5,2]]))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
